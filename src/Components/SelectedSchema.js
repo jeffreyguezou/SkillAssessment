@@ -4,13 +4,13 @@ const SelectedSchema = (props) => {
   return (
     <div className="selectedSchema">
       <span>
-        {props.schema.type === "user" ? (
+        {props.schematype === "user" ? (
           <Dots type="green" />
         ) : (
           <Dots type="red" />
         )}
       </span>
-      <div className="schemaName">{props.schema.name}</div>
+      <div className="schemaName">{props.schemaname}</div>
     </div>
   );
 };

@@ -1,24 +1,31 @@
 const SchemaDropDown = (props) => {
   const schemaOptions = [
-    { id: 1, schema: "Label: First Name Value: first_name", trait: "user" },
-    { id: 2, schema: "Label: Last Name Value: last_name", trait: "user" },
-    { id: 3, schema: "Label: Gender Value: gender", trait: "user" },
-    { id: 4, schema: "Label: Age Value: age", trait: "user" },
-    {
-      id: 5,
-      schema: "Label: Account Name Value: account_name",
-      trait: "group",
-    },
-    { id: 6, schema: "Label: City Value: city", trait: "group" },
-    { id: 7, schema: "Label: State Value: state", trait: "group" },
+    { id: 1, label: "Label: First Name Value: first_name" },
+    { id: 2, label: "Label: Last Name Value: last_name" },
+    { id: 3, label: "Label: Gender Value: gender" },
+    { id: 4, label: "Label: Age Value: age" },
+    { id: 5, label: "Label: Account Name Value: account_name" },
+    { id: 6, label: "Label: State Value: state" },
   ];
+  const schemaChangeHandler = (event) => {
+    console.log(event.target.value);
+    props.onSetSchema(event.target.value);
+  };
   return (
     <div className="schemaDropDownArea">
-      <select className="schemaDropDownBox">
+      <select
+        onChange={schemaChangeHandler}
+        value={props.initialValue}
+        className="schemaDropDownBox"
+      >
         {schemaOptions.map((schemaOption) => {
           return (
-            <option key={schemaOption.id}>
-              <span>{schemaOption.schema}</span>
+            <option
+              className="dropDownOptions"
+              value={schemaOption.id}
+              key={schemaOption.id}
+            >
+              {schemaOption.label}
             </option>
           );
         })}

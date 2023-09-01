@@ -27,6 +27,7 @@
 }
 .nameInput {
   padding: 10px;
+  margin-top: 10px;
 }
 
 @media (min-width: 768px) {
@@ -102,6 +103,9 @@
   padding: 10px;
 }
 .schemaDropDownBox {
+  padding: 10px;
+}
+.dropDownOptions {
   padding: 10px;
 }
 .btnSection {
