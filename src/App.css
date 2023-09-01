@@ -1,0 +1,127 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.popup {
+  position: fixed;
+  top: 5vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+.segmentName {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.nameInput {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .popup {
+    width: 30rem;
+    left: calc(50% - 15rem);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup {
+    width: 80%;
+    left: 5%;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.traits {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px;
+}
+.redDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: red;
+}
+.greenDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: green;
+}
+.schemaSection {
+  padding: 10px;
+}
+.addSchema {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.selectedSchema {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.selectedSchemas {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid blue;
+}
+.schemaDropDownArea {
+  padding: 10px;
+}
+.schemaDropDownBox {
+  padding: 10px;
+}
+.btnSection {
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.saveBtn {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cancelBtn {
+  padding: 10px;
+  color: red;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 130px;
+}
