@@ -3,10 +3,13 @@ import Dots from "./Dots";
 import SchemaDropDown from "./SchemaDropDown";
 import SelectedSchema from "./SelectedSchema";
 import { useState } from "react";
-const NewSegment = () => {
+import { useDispatch } from "react-redux";
+import { removeSchema } from "../Redux/Segment";
+const NewSegment = (props) => {
   const [segmentName, setSegmentName] = useState("");
   const [selectSchema, setSelectSchema] = useState("");
   const [selectedSchema, setSelectedSchema] = useState([]);
+  const dispatch = useDispatch();
   const onSetSchema = (schemaname) => {
     console.log(schemaname);
     setSelectSchema(schemaname);
@@ -20,6 +23,7 @@ const NewSegment = () => {
           type: "user",
         },
       ]);
+      dispatch(removeSchema("1"));
     } else if (selectSchema === "2") {
       setSelectedSchema((selectedSchema) => [
         ...selectedSchema,
@@ -65,6 +69,7 @@ const NewSegment = () => {
   const nameChangehandler = (event) => {
     setSegmentName(event.target.value);
   };
+  const saveSegmentHandler = () => {};
   return (
     <PopUp>
       <div className="segmentName">
@@ -102,14 +107,21 @@ const NewSegment = () => {
           )}
         </div>
 
-        <SchemaDropDown onSetSchema={onSetSchema} />
+        <SchemaDropDown
+          selectedSchema={selectedSchema}
+          onSetSchema={onSetSchema}
+        />
       </div>
       <div className="addSchema">
         <span onClick={onAddSchema}>+ Add new schema</span>
       </div>
       <div className="btnSection">
-        <button className="saveBtn">Save the segment</button>
-        <button className="cancelBtn">Cancel</button>
+        <button className="saveBtn" onClick={saveSegmentHandler}>
+          Save the segment
+        </button>
+        <button onClick={props.onClosePopUp} className="cancelBtn">
+          Cancel
+        </button>
       </div>
     </PopUp>
   );

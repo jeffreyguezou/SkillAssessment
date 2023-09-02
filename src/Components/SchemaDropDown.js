@@ -1,12 +1,8 @@
+import { useSelector } from "react-redux";
+
 const SchemaDropDown = (props) => {
-  const schemaOptions = [
-    { id: 1, label: "Label: First Name Value: first_name" },
-    { id: 2, label: "Label: Last Name Value: last_name" },
-    { id: 3, label: "Label: Gender Value: gender" },
-    { id: 4, label: "Label: Age Value: age" },
-    { id: 5, label: "Label: Account Name Value: account_name" },
-    { id: 6, label: "Label: State Value: state" },
-  ];
+  const validSchema = useSelector((state) => state.schema);
+  console.log(validSchema);
   const schemaChangeHandler = (event) => {
     console.log(event.target.value);
     props.onSetSchema(event.target.value);
@@ -18,7 +14,8 @@ const SchemaDropDown = (props) => {
         value={props.initialValue}
         className="schemaDropDownBox"
       >
-        {schemaOptions.map((schemaOption) => {
+        <option>select schema</option>
+        {validSchema.map((schemaOption) => {
           return (
             <option
               className="dropDownOptions"
