@@ -8,6 +8,7 @@ const Home = () => {
   };
   const popUpHideHandler = () => {
     setShowPopUp(false);
+    window.location.reload();
   };
   return (
     <div>
