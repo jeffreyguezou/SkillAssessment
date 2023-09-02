@@ -8,8 +8,7 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 .popup {
-  position: fixed;
-  top: 5vh;
+  position: absolute;
   left: 5%;
   width: 90%;
   background-color: white;

@@ -113,7 +113,11 @@ const NewSegment = (props) => {
         mode: "no-cors",
       }
     );
-    if (response);
+    if (response) {
+      if (!alert("Data sent!")) {
+        window.location.reload();
+      }
+    }
   };
   return (
     <PopUp>
