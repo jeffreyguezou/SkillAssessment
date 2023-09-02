@@ -11,8 +11,10 @@ const Home = () => {
     window.location.reload();
   };
   return (
-    <div>
-      <button onClick={popUpShowHandler}>Save Segment</button>
+    <div className="home">
+      <button className="homeBtn" onClick={popUpShowHandler}>
+        Save Segment
+      </button>
       {showPopUp && <NewSegment onClosePopUp={popUpHideHandler} />}
     </div>
   );
